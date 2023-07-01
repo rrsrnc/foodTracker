@@ -2,8 +2,8 @@ html,
 body{
   height: 100%;
   margin: 0;
-  background-image: url('../public/bg.jpg');
-  background-color: rgba(0, 0, 0, 0.1);
+  /* background-image: url('../public/bg.jpg'); */
+  background-color: antiquewhite;
   background-repeat:no-repeat;
   background-size: cover;
   background-blend-mode: color-burn;

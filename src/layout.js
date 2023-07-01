@@ -13,7 +13,7 @@ const Layout = () => {
       <main className="main">
         <Outlet />
       </main>
-      <div className="footer"><footer>Contact Us</footer></div>
+      <div className="footer"><footer><p>&copy; 2023 Food Donation Website. All rights reserved.</p></footer></div>
       </div>
     </>
   );
