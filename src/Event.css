@@ -1,0 +1,19 @@
+.eventForm{
+    height: auto;
+    width: 500px;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 5px;
+    
+}
+
+.eventCard{
+    /* width: 500px; */
+    
+}

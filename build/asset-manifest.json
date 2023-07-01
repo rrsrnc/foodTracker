@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/foodtracker/static/css/main.5496d492.css",
+    "main.js": "/foodtracker/static/js/main.9013dfcd.js",
+    "static/media/bg.jpg": "/foodtracker/static/media/bg.ae1d1ce037a9ebdb262c.jpg",
+    "index.html": "/foodtracker/index.html",
+    "main.5496d492.css.map": "/foodtracker/static/css/main.5496d492.css.map",
+    "main.9013dfcd.js.map": "/foodtracker/static/js/main.9013dfcd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5496d492.css",
+    "static/js/main.9013dfcd.js"
+  ]
+}

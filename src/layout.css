@@ -1,0 +1,31 @@
+html,
+body{
+  height: 100%;
+  margin: 0;
+  background-image: url('../public/bg.jpg');
+  background-color: rgba(0, 0, 0, 0.1);
+  background-repeat:no-repeat;
+  background-size: cover;
+  background-blend-mode: color-burn;
+  color: black;
+}
+
+.containerbody {
+  display: grid;
+  grid-template-rows: auto 90% auto;
+  flex-direction: column;
+}
+
+
+
+.footer {
+  display: flex;
+  width: 100%;
+  background-color: rgb(77, 241, 110);
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  position: fixed;
+  bottom: 0;
+}
+

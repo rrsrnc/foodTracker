@@ -1,0 +1,44 @@
+.header{
+    background-color: aqua;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    
+}
+
+.left{
+    display: flex;
+    align-items: center;
+}
+
+.middle{
+    display: flex;
+    justify-content: center;
+}
+
+.right{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.menu{
+    margin: 10px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.search{
+    border-radius: 20px;
+    position: relative;
+}
+
+.search::placeholder{
+    width:auto;
+    position: absolute;
+    left: 25%;
+    
+    
+}
+
+
+
