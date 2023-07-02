@@ -4,29 +4,62 @@ import EventCard from "./Event";
 import Dashboard from "./Dashboard";
 import './App.css'
 import Card from "./AllEvents";
+import { LoginForm, SignupForm } from "./authform";
 
 
 function App() {
-  const events=[
+  const events = [
     {
-        "title": 1,
-        "date": "2023-07-04",
-        "time": "21:00:00",
-        "location": "Ranchi, India",
-        "food_excess": 200,
-        "mobile":7004286381,
-        "email":"rajeev7605@gmail.com",
-        "description":"Food 150kg"
+      "title": 1,
+      "date": "2023-07-04",
+      "time": "21:00:00",
+      "location": "Ranchi, India",
+      "food_excess": 200,
+      "mobile": 7004286381,
+      "email": "rajeev7605@gmail.com",
+      "description": "Food 150kg"
     },
     {
-        "title": 2,
-        "date": "2023-07-04",
-        "time": "21:00:00",
-        "location": "Ranchi, India",
-        "food_excess":200,
-        "mobile":7004286381
-  }
-]
+      "title": 2,
+      "date": "2023-07-04",
+      "time": "21:00:00",
+      "location": "Ranchi, India",
+      "food_excess": 200,
+      "mobile": 7004286381,
+      "email": "example@gmail.com",
+      "description": "Food 150kg"
+    },
+    {
+      "title": 3,
+      "date": "2023-07-04",
+      "time": "21:00:00",
+      "location": "Ranchi, India",
+      "food_excess": 200,
+      "mobile": 7004286381,
+      "email": "test@gmail.com",
+      "description": "Food 150kg"
+    },
+    {
+      "title": 4,
+      "date": "2023-07-04",
+      "time": "21:00:00",
+      "location": "Ranchi, India",
+      "food_excess": 200,
+      "mobile": 7004286381,
+      "email": "sample@gmail.com",
+      "description": "Food 150kg"
+    },
+    {
+      "title": 5,
+      "date": "2023-07-04",
+      "time": "21:00:00",
+      "location": "Ranchi, India",
+      "food_excess": 200,
+      "mobile": 7004286381,
+      "email": "info@gmail.com",
+      "description": "Food 150kg"
+    }
+  ];
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
@@ -49,8 +82,10 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Layout />}>
-          <Route path="home" element={<Dashboard />}/>
+          <Route index element={<Dashboard />}/>
           <Route path="event" element={<EventCard />}/>
+          <Route path="login" element={<LoginForm />}/>
+          <Route path="signup" element={<SignupForm />}/>
           <Route path="all_events" element={<Card props={events}/>}/>
           </Route>
         </Routes>

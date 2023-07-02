@@ -1,48 +1,107 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Event.css";
 
-const EventCard = ({ title, date, location, description,contact,time,quantity}) => {
+const EventCard = () => {
+  const [event, setEvent] = useState({
+    title: "",
+    date: "",
+    time: "",
+    location: "",
+    description: "",
+    contact: "",
+    email: "",
+  });
 
-  const handleEventSubmit=(event)=> {
-    event.preventDefault()
-    event.preventDefault();
-    let form=event.target.elements
-    var title = form.title.value;
-    var date = form.date.value;
-    var location = form.location.value;
-    var desc = form.description.value;
-    console.log("Title: " + title,date,location,desc);
-  }
+  
+  const handleEventSubmit = (e) => {
+    e.preventDefault();
+    console.log(event)
+    // Reset the form and event object
+    setEvent({
+      title: "",
+      date: "",
+      time: "",
+      location: "",
+      description: "",
+      contact: "",
+      email: "",
+    });
+  };
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setEvent((prevEvent) => ({
+      ...prevEvent,
+      [name]: value,
+    }));
+  };
+
   return (
     <div className="eventCard">
       <form className="eventForm" onSubmit={handleEventSubmit}>
         <label htmlFor="title">Title:</label>
-        <input type="text" id="title" name="title" value={title} />
+        <input
+          type="text"
+          id="title"
+          name="title"
+          value={event.title}
+          onChange={handleInputChange}
+        />
 
         <label htmlFor="date">Date:</label>
-        <input type="date" id="date" name="date" value={date} />
+        <input
+          type="date"
+          id="date"
+          name="date"
+          value={event.date}
+          onChange={handleInputChange}
+        />
 
-        <label htmlFor="time">Date:</label>
-        <input type="time" id="time" name="date" value={time} />
+        <label htmlFor="time">Time:</label>
+        <input
+          type="time"
+          id="time"
+          name="time"
+          value={event.time}
+          onChange={handleInputChange}
+        />
 
         <label htmlFor="location">Location:</label>
-        <input type="text" id="location" name="location" value={location} />
-
+        <input
+          type="text"
+          id="location"
+          name="location"
+          value={event.location}
+          onChange={handleInputChange}
+        />
 
         <label htmlFor="description">Description:</label>
-        <textarea id="description" name="description">
-          {description}
-        </textarea>
-        {/* <label htmlFor="quantity">Contact details:</label>
-        <input type="number" id="quantity" name="quantity" value={quantity} /> */}
-        <label htmlFor="contact">Mobile:</label>
-        <input type="text" id="contact" name="contact" value={contact} />
-        <label htmlFor="email">Email Id:</label>
-        <input type="text" id="email" name="email" />
+        <textarea
+          id="description"
+          name="description"
+          value={event.description}
+          onChange={handleInputChange}
+        ></textarea>
 
-        <button type="submit" >
-          Submit
-        </button>
+        <label htmlFor="contact">Mobile:</label>
+        <input
+          type="text"
+          id="contact"
+          name="contact"
+          value={event.contact}
+          onChange={handleInputChange}
+        />
+
+        <label htmlFor="email">Email Id:</label>
+        <input
+          type="text"
+          id="email"
+          name="email"
+          value={event.email}
+          onChange={handleInputChange}
+        />
+
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

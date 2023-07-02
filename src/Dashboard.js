@@ -3,6 +3,7 @@ import './dashboard.css'
 
 const Dashboard = () => {
   return (
+    <div className="dashboard">
     <div className="landing-page">
       <header className="">
         <h1>Food Donation Website</h1>
@@ -25,6 +26,8 @@ const Dashboard = () => {
           <li>Build a stronger community by fostering goodwill and collaboration.</li>
         </ul>
       </section>
+    </div>
+    <img src={"bg.jpg"} alt="food"></img>
     </div>
   );
 };

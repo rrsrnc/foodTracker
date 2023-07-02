@@ -1,6 +1,7 @@
 .events{
   display: flex;
   margin: 15px;
+  flex-wrap: wrap;
 }
 
 .food-card {
