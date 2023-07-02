@@ -61,6 +61,9 @@ function App() {
     }
   ];
 
+  
+
+
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
   } else {
@@ -86,7 +89,7 @@ function App() {
           <Route path="event" element={<EventCard />}/>
           <Route path="login" element={<LoginForm />}/>
           <Route path="signup" element={<SignupForm />}/>
-          <Route path="all_events" element={<Card props={events}/>}/>
+          <Route path="all_events" element={<Card/>}/>
           </Route>
         </Routes>
       </Router>

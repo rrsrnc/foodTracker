@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import "./Event.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const EventCard = () => {
   const [event, setEvent] = useState({
@@ -8,24 +11,54 @@ const EventCard = () => {
     time: "",
     location: "",
     description: "",
-    contact: "",
+    contactPerson:"",
+    contactDetail: "",
     email: "",
   });
 
-  
+  const [errors, setErrors] = useState({}); // State variable to hold validation errors
+
   const handleEventSubmit = (e) => {
     e.preventDefault();
-    console.log(event)
-    // Reset the form and event object
-    setEvent({
-      title: "",
-      date: "",
-      time: "",
-      location: "",
-      description: "",
-      contact: "",
-      email: "",
-    });
+    const validationErrors = validateInputs(event); // Validate the inputs
+    if (Object.keys(validationErrors).length === 0) {
+      // Proceed with API request if no validation errors
+      console.log(event);
+
+      fetch("https://food-tracker-api.vercel.app/trackfood/weddings/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(event),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          // Handle the response from the API
+          toast.success("Event details submiited successfully")
+          console.log(data);
+        })
+        .catch((error) => {
+          // Handle any errors that occurred during the request
+          console.error(error);
+        });
+
+      // Reset the form and event object
+      setEvent({
+        title: "",
+        date: "",
+        time: "",
+        location: "",
+        description: "",
+        contactPerson:"",
+        contactDetail: "",
+        email: "",
+      });
+      setErrors({});
+    } else {
+      // Update the errors state variable with the validation errors
+      setErrors(validationErrors);
+    }
   };
 
   const handleInputChange = (event) => {
@@ -36,8 +69,44 @@ const EventCard = () => {
     }));
   };
 
+  const validateInputs = (event) => {
+    const errors = {};
+
+    if (!event.title) {
+      errors.title = "Title is required.";
+    }
+
+    if (!event.date) {
+      errors.date = "Date is required.";
+    }
+
+    if (!event.time) {
+      errors.time = "Time is required.";
+    }
+
+    if (!event.location) {
+      errors.location = "Location is required.";
+    }
+
+    if (!event.description) {
+      errors.description = "Description is required.";
+    }
+
+    if (!event.contactDetail) {
+      errors.contact = "Mobile is required.";
+    }
+
+    if (!event.email) {
+      errors.email = "Email is required.";
+    }
+
+    return errors;
+  };
+
   return (
+    
     <div className="eventCard">
+      <ToastContainer></ToastContainer>
       <form className="eventForm" onSubmit={handleEventSubmit}>
         <label htmlFor="title">Title:</label>
         <input
@@ -47,6 +116,7 @@ const EventCard = () => {
           value={event.title}
           onChange={handleInputChange}
         />
+        {errors.title && <span className="error">{errors.title}</span>}
 
         <label htmlFor="date">Date:</label>
         <input
@@ -56,6 +126,7 @@ const EventCard = () => {
           value={event.date}
           onChange={handleInputChange}
         />
+        {errors.date && <span className="error">{errors.date}</span>}
 
         <label htmlFor="time">Time:</label>
         <input
@@ -65,6 +136,7 @@ const EventCard = () => {
           value={event.time}
           onChange={handleInputChange}
         />
+        {errors.time && <span className="error">{errors.time}</span>}
 
         <label htmlFor="location">Location:</label>
         <input
@@ -74,6 +146,7 @@ const EventCard = () => {
           value={event.location}
           onChange={handleInputChange}
         />
+        {errors.location && <span className="error">{errors.location}</span>}
 
         <label htmlFor="description">Description:</label>
         <textarea
@@ -82,15 +155,25 @@ const EventCard = () => {
           value={event.description}
           onChange={handleInputChange}
         ></textarea>
+        {errors.description && <span className="error">{errors.description}</span>}
 
+        <label htmlFor="contactPerson">Contact Person:</label>
+        <input
+          type="text"
+          id="contactPerson"
+          name="contactPerson"
+          value={event.contactPerson}
+          onChange={handleInputChange}
+        />
         <label htmlFor="contact">Mobile:</label>
         <input
           type="text"
           id="contact"
-          name="contact"
-          value={event.contact}
+          name="contactDetail"
+          value={event.contactDetail}
           onChange={handleInputChange}
         />
+        {errors.contact && <span className="error">{errors.contact}</span>}
 
         <label htmlFor="email">Email Id:</label>
         <input
@@ -100,10 +183,12 @@ const EventCard = () => {
           value={event.email}
           onChange={handleInputChange}
         />
+        {errors.email && <span className="error">{errors.email}</span>}
 
         <button type="submit">Submit</button>
       </form>
     </div>
+    
   );
 };
 

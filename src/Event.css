@@ -1,8 +1,9 @@
 .eventForm{
     height: auto;
     width: 500px;
-    display: grid;
+    display: flex;
     grid-template-columns: auto auto;
+    flex-direction: column;
     gap: 10px;
     background-color: white;
     margin-left: auto;
@@ -17,3 +18,9 @@
     /* width: 500px; */
     
 }
+.error {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+  }
+  
