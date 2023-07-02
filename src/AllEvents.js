@@ -18,7 +18,7 @@ const Card = () => {
 
   const Consume = (event, type) => {
     if (type === "whatsapp") {
-      var mobile = event.mobile;
+      var mobile = parseInt(event.contactDetail);
       var message =
         "Hello, we are contacting you on behalf of your listing on Food-Tracker website!";
       var url =
