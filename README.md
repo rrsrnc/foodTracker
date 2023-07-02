@@ -1,3 +1,31 @@
+# Demo link- https://foodtracker-75av.onrender.com/
+
+# Food Tracker App
+This is the official repository for the Leftover Food Tracker for Wedding Events, a web application designed to track and manage leftover food at wedding events. The purpose of this application is to minimize food wastage and facilitate the donation or redistribution of excess food to minimize waste and benefit those in need.
+
+## Features
+User registration and authentication for event organizers and food donors.
+Easy input of leftover food items, including quantity, type, and expiration date.
+Categorization of leftover food items based on dietary restrictions (e.g., vegetarian, gluten-free).
+Option to search and filter leftover food items based on specific criteria.
+Integrated communication platform for event organizers and food donors to coordinate pickup or delivery.
+
+# Technologies Used
+Django
+React
+HTML/CSS/JavaScript
+Bootstrap (optional)
+
+# Contributing
+Contributions are welcome! If you'd like to contribute to the FoodTracker website, please follow these steps:
+
+Fork the repository.
+Create a new branch for your feature/fix.
+Make your changes and commit them.
+Push your changes to your forked repository.
+Submit a pull request to the main repository.
+Please ensure your code follows the existing coding style and includes appropriate tests.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
